@@ -120,7 +120,7 @@ handle_version_choice() {
 }
 
 # Zenity <3.12.1 has a radiolist bug; Steam's zenity is 3.4.0; Assume system zenity is newer
-zenity_exec="$(command -pv zenity)"
+zenity_exec="zenity"
 
 if [ -n $zenity_exec ]; then
     version_choice=$($zenity_exec --title="$zenity_title" \
@@ -136,7 +136,7 @@ handle_version_choice
 #zenity --info --title=$zenity_title --text="$final_text"
 
 if command -v gamemoderun; then
-    exec gamemoderun  "${args[@]}"
+    exec gamemoderun "${args[@]}"
 else
     exec ${args[@]}
 fi
